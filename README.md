@@ -61,17 +61,25 @@ Leí el documento con los objetivos y entendí que lo principal era:
 
 Creé una columna nueva en Power BI con este código:
 
-`dax
-
-Canal =
+Canal = 
 SWITCH(
-    TRUE(),
+    TRUE(),  // Evalúa cada condición hasta encontrar una verdadera
+    
+    // Si contiene "AUTOVENTA" → Detallista
     CONTAINSSTRING(UPPER([Centro Costo]), "AUTOVENTA"), "Detallista",
+    
+    // Si contiene "PREVENTA" → Detallista
     CONTAINSSTRING(UPPER([Centro Costo]), "PREVENTA"), "Detallista",
+    
+    // Si contiene "AUTOSERV" → Autoservicios
     CONTAINSSTRING(UPPER([Centro Costo]), "AUTOSERV"), "Autoservicios",
+    
+    // Si contiene "MAYORISTA" → Mayorista
     CONTAINSSTRING(UPPER([Centro Costo]), "MAYORISTA"), "Mayorista",
+    
+    // Si no coincide con nada → Otros
     "Otros"
-)`
+)
 
 **¿Qué hace este código?**
 
