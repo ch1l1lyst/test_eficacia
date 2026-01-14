@@ -61,7 +61,7 @@ Leí el documento con los objetivos y entendí que lo principal era:
 
 Creé una columna nueva en Power BI con este código:
 
-dax
+`dax
 
 Canal =
 SWITCH(
@@ -71,7 +71,7 @@ SWITCH(
     CONTAINSSTRING(UPPER([Centro Costo]), "AUTOSERV"), "Autoservicios",
     CONTAINSSTRING(UPPER([Centro Costo]), "MAYORISTA"), "Mayorista",
     "Otros"
-)
+)`
 
 **¿Qué hace este código?**
 
